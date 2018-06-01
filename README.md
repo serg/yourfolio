@@ -35,4 +35,4 @@ Start a Hugo development server on your local machine inside your website folder
 ```
 $ hugo server
 ```
-Your website will be available in browser by this path `localhost:1313`
+Your website will be available in browser by this path [`localhost:1313`](http://localhost:1313/)
