@@ -1,11 +1,11 @@
 name = "Yourfolio"
 license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE.md"
+licenselink = "https://github.com/serg/yourfolio/blob/master/LICENSE.md"
 description = "A simple and responsive theme for your personal website"
-homepage = "http://example.com/"
-tags = []
+homepage = "https://github.com/serg/yourfolio"
+tags = ["responsive", "minimal", "simple", "personal", "portfolio"]
 features = []
-min_version = "0.30.2"
+min_version = "0.38"
 
 [author]
   name = "Sergey Furtak"
