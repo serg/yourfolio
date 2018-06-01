@@ -4,7 +4,7 @@ Super simple and responsive theme for your personal website on Hugo framework.
 ![Yourfolio screenshot](https://raw.githubusercontent.com/serg/yourfolio/master/images/tn.png)
 
 ## Installation
-Before start you already need to have a Hugo on your machine. You can install it by following [these instructions](https://gohugo.io/getting-started/installing/)
+Before start you already need to have a Hugo on your machine. You can install it by following [these instructions](https://gohugo.io/getting-started/installing/).
 
 Create the Hugo website template if you are starting from scratch:
 
@@ -38,3 +38,8 @@ Start a Hugo development server on your local machine inside your website folder
 $ hugo server
 ```
 Your website will be available in browser by this path [`localhost:1313`](http://localhost:1313/)
+
+## Credits
+- Design created by [Yara](https://yaravelichko.com).
+- Some of the images in an example of this theme belongs to their authors ([Carlos Muza](https://unsplash.com/@kmuza), [Edho Pratama](https://unsplash.com/@edhoradic), [
+William Iven](https://unsplash.com/@firmbee), [Igor Miske](https://unsplash.com/@igormiske), [Igor Ovsyannykov](https://unsplash.com/@igorovsyannykov)) on [Unsplash](https://unsplash.com).
