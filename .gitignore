@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+
+.buildpath
+.project
+.settings/
+.build/
+.idea/
+nbproject
+
+public
