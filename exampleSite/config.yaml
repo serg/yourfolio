@@ -1,0 +1,22 @@
+baseURL: https://example.com
+languageCode: en-us
+title: Yourfolio Theme
+theme: yourfolio
+disableKinds: [RSS, taxonomy, taxonomyTerm]
+googleAnalytics: UA-XXXXX-Y
+
+# Menu items
+menu:
+  main:
+  - name: About
+    weight: 1
+    url: /about
+  - name: Contact
+    weight: 2
+    url: /contact
+
+# Custom params
+params:
+  env: development
+  logoImage: img/logo.png
+  logoImageAlt: Yourfolio Theme brand logo
