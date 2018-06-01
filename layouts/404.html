@@ -1,0 +1,68 @@
+{{- define "page-class" -}}error404{{- end -}}
+{{- define "head-includes" -}}
+  {{- partial "head-includes.html" . -}}
+  <style>
+    .error404 {
+      height: 100%; }
+      .error404 body, .error404 .main-container, .error404 .header, .error404 .container, .error404 .padder {
+        height: 100%; }
+      .error404 .header {
+        overflow: hidden; }
+
+    .error404 .main-description {
+      height: 100%; }
+      .error404 .main-description h1 {
+        padding-bottom: 0.370em; }
+      .error404 .main-description p {
+        display: inline;
+        font-size: 2em;
+        font-weight: 600;
+        color: #989898; }
+      .error404 .main-description .img-col {
+        display: none; }
+
+    @media screen and (max-height: 25em) {
+      .error404 .main-description h1 {
+        font-size: 4em;
+        padding-top: 1.3em; } }
+
+    @media screen and (min-width: 56.25em), (min-height: 52.5625em) and (min-width: 56.25em) {
+      .error404 .main-description p {
+        display: block; }
+      .error404 .main-description .img-col {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 47%; }
+      .error404 .main-description img {
+        max-height: 75em;
+        bottom: 9.1em;
+        z-index: -1; } }
+
+    @media screen and (max-height: 52.5625em) and (min-width: 56.25em) {
+      .error404 .main-description img {
+        bottom: 0; } }
+  </style>
+{{- end -}}
+{{- define "main" -}}
+  <div class="main-container">
+    {{- partial "navigation" . -}}
+    <div class="header">
+      <div class="container">
+        <div class="padder">
+          <div class="main-description animated fadeIn">
+            <div class="text-col">
+              <h1 class="break-word">Oops! Nothing found.</h1>
+              <p>Seems like this page doesn't exist,</p>
+              <p><span>but you can go to the</span> <a class="blue-text" href="/">Home</a> <span>page.</span></p>
+            </div>
+            <div class="img-col">
+              <picture><img src="img/error404.png" alt="The maneken hand image"></picture>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{- end -}}

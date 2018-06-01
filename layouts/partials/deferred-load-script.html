@@ -1,0 +1,20 @@
+<script>
+  var addToLoad = function(callback){
+    if (window.addEventListener)
+      window.addEventListener('load', callback);
+    else if (window.attachEvent)
+      window.attachEvent('onload', callback);
+    else window.onload = callback;
+  };
+
+  var loadDeferredCss = function() {
+    var addStylesNode = document.getElementById("deferredCss");
+    var replacement = document.createElement("div");
+    replacement.innerHTML = addStylesNode.textContent;
+    document.body.appendChild(replacement)
+    addStylesNode.parentElement.removeChild(addStylesNode);
+  };
+  var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+  if (raf) raf(function() { window.setTimeout(loadDeferredCss, 0); });
+  else addToLoad(loadDeferredCss);
+</script>

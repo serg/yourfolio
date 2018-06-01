@@ -1,0 +1,23 @@
+{{$header := .Params.header}}
+<div class="header">
+  <div class="container">
+    <div class="padder">
+      <div class="main-description animated fadeIn">
+        {{- with $header.description -}}
+          <h1 class="break-word">{{- . | safeHTML -}}</h1>
+        {{- end -}}
+        <picture>
+          {{$currentPageContext := .}}
+          {{- with $header.responsive_images -}}
+            {{range $imageWidth, $imageUrl := .}}
+              {{ $currentPageContext.Scratch.Add "srcSetArray" (slice (print ($imageUrl | relURL) " " $imageWidth "w")) }}
+            {{end}}
+            <source media="(max-width: 46.25em)" srcset="{{delimit ($currentPageContext.Scratch.Get "srcSetArray") ", "}}">
+            {{ $currentPageContext.Scratch.Delete "srcSetArray" }}
+          {{- end -}}
+          <img src="{{$header.image | relURL}}" alt="{{$header.image_alt}}">
+        </picture>
+      </div>
+    </div>
+  </div>
+</div>

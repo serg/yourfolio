@@ -1,0 +1,31 @@
+{{$currentPageContext := .}}
+{{with .Params.projects}}
+<ul class="projects clearfix">
+  {{- range . -}}
+    <li class="project{{with .class}} {{.}}{{end}}">
+      <a href="{{.link}}">
+        <picture>
+          {{- with .responsive_images -}}
+            {{range $imageWidth, $imageUrl := .}}
+              {{ $currentPageContext.Scratch.Add "srcSetArray" (slice (print ($imageUrl | relURL) " " $imageWidth "w")) }}
+            {{end}}
+            <source media="(max-width: 46.25em)" srcset="{{delimit ($currentPageContext.Scratch.Get "srcSetArray") ", "}}">
+            {{ $currentPageContext.Scratch.Delete "srcSetArray" }}
+          {{- end -}}
+          <img class="project-image" src="{{.image | relURL}}" alt="{{.image_alt}}">
+        </picture>
+        <div class="project-hover">
+          <div class="project-caption">
+            {{- with .title -}}
+              <div class="project-title">{{.}}</div>
+            {{- end -}}
+            {{- with .type -}}
+              <div class="project-type">{{.}}</div>
+            {{- end -}}
+          </div>
+        </div>
+      </a>
+    </li>
+  {{- end -}}
+</ul>
+{{- end -}}

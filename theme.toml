@@ -1,0 +1,12 @@
+name = "Yourfolio"
+license = "MIT"
+licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE.md"
+description = "A simple and responsive theme for your personal website"
+homepage = "http://example.com/"
+tags = []
+features = []
+min_version = "0.30.2"
+
+[author]
+  name = "Sergey Furtak"
+  homepage = "https://sergfurtak.com"

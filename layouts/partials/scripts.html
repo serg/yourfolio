@@ -1,0 +1,4 @@
+{{- partial "deferred-load-script.html" . -}}
+<script src="{{`vendor.js` | relURL}}"></script>
+<script src="{{`app.js` | relURL}}"></script>
+<script>require('app').init()</script>

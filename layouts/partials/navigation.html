@@ -1,0 +1,24 @@
+{{$maxMenuLinksToShow := .Site.Params.maxMenuLinksToShow | default 5}}
+{{$showBurgerMenu := gt (len .Site.Menus.main) $maxMenuLinksToShow}}
+<div class="nav-container{{if $showBurgerMenu}} showBurger{{end}}">
+  <div class="container">
+    <div class="padder">
+      <div class="navbar animated slideInDown">
+        <div class="logo"><a href="/"><img src="{{.Site.Params.logoImage | relURL}}" alt="{{.Site.Params.logoImageAlt}}"></a></div>
+        <div class="burger-wrap">
+          <div class="burger">
+            <div class="top"></div>
+            <div class="middle"></div>
+            <div class="bottom"></div>
+          </div>
+        </div>
+        <ul class="links">
+          {{$permalink := .Permalink}}
+          {{- range .Site.Menus.main -}}
+            <li {{if in $permalink .URL }}class="active"{{end}}><a href="{{.URL}}">{{.Name}}</a></li>
+          {{- end -}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

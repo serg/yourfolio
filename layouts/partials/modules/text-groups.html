@@ -1,0 +1,14 @@
+{{with .Params.text_groups}}
+<div class="categories clearfix bottom-space">
+  {{- range . -}}
+    <div class="category{{with .class}} {{.}}{{end}}">
+      {{- with .name -}}
+        <div class="name">{{- . | safeHTML -}}</div>
+      {{- end -}}
+      {{- with .description -}}
+        <div class="description">{{- . | safeHTML -}}</div>
+      {{- end -}}
+    </div>
+  {{- end -}}
+</div>
+{{- end -}}

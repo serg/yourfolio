@@ -1,0 +1,36 @@
+<!doctype html>
+<html class="{{block "page-class" . }}{{end}} no-js" lang="{{ .Site.LanguageCode | default "en" }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ block "title" . }}{{ with .Title }}{{ . }} - {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ .Description }}">
+    {{- if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") -}}
+      <meta name="robots" content="index, follow">
+    {{- else -}}
+      <meta name="robots" content="noindex, nofollow">
+    {{- end -}}
+    <link rel="shortcut icon" href="{{`favicon.ico` | relURL}}">
+    {{- block "head-includes" . -}}
+      {{- partial "head-includes.html" . -}}
+    {{- end -}}
+  </head>
+  <body>
+    {{- "<!--[if lte IE 9]>" | safeHTML -}}
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    {{- "<![endif]-->" | safeHTML -}}
+    {{- block "no-scripts" . -}}
+      <noscript>For full functionality of this site it is necessary to enable JavaScript. Here are the <a href="//www.enable-javascript.com" target="_blank" rel="noreferrer nofollow">instructions how to enable JavaScript in your web browser</a>.</noscript>    
+    {{- end -}}
+    {{- block "header" . -}}{{- end -}}
+    {{- block "main" . -}}{{- end -}}
+    {{- block "footer" . -}}{{- end -}}
+    {{- block "scripts" . -}}
+      {{- partial "scripts.html" . -}}
+    {{- end -}}
+    {{- if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") | and .Site.GoogleAnalytics -}}
+      {{- template "_internal/google_analytics_async.html" . -}}
+    {{- end -}}
+  </body>
+</html>
