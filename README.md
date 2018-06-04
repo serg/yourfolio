@@ -1,7 +1,7 @@
 # Yourfolio
 Super simple and responsive theme for your personal website on Hugo framework.
 
-![Yourfolio screenshot](https://raw.githubusercontent.com/serg/yourfolio/master/images/showcase.gif)
+![Yourfolio screenshot](https://bit.ly/2LhW4Xo)
 
 ## Installation
 Before start you already need to have a Hugo on your machine. You can install it by following [these instructions](https://gohugo.io/getting-started/installing/).
