@@ -6,17 +6,23 @@
         {{- with $header.description -}}
           <h1 class="break-word">{{- . | safeHTML -}}</h1>
         {{- end -}}
-        <picture>
-          {{$currentPageContext := .}}
-          {{- with $header.responsive_images -}}
-            {{range $imageWidth, $imageUrl := .}}
-              {{ $currentPageContext.Scratch.Add "srcSetArray" (slice (print ($imageUrl | relURL) " " $imageWidth "w")) }}
-            {{end}}
-            <source media="(max-width: 46.25em)" srcset="{{delimit ($currentPageContext.Scratch.Get "srcSetArray") ", "}}">
-            {{ $currentPageContext.Scratch.Delete "srcSetArray" }}
+        {{- with $header.image -}}
+          {{- $imageUrl := .url -}}
+          {{- $imageAltText := .alt_text -}}
+          {{- $responsiveSources := .responsive_sources -}}
+          {{- with $imageUrl -}}
+            <picture>
+              {{- with $responsiveSources -}}
+                {{- range $imageWidth, $imageSourceUrl := . -}}
+                  {{- $.Scratch.Add "imageSrcSetArray" (slice (print ($imageSourceUrl | relURL) " " $imageWidth "w")) -}}
+                {{- end -}}
+                <source media="(max-width: 46.25em)" srcset="{{delimit ($.Scratch.Get "imageSrcSetArray") ", "}}">
+                {{- $.Scratch.Delete "imageSrcSetArray" -}}
+              {{- end -}}
+              <img class="project-image" src="{{. | relURL}}" alt="{{$imageAltText}}">
+            </picture>
           {{- end -}}
-          <img src="{{$header.image | relURL}}" alt="{{$header.image_alt}}">
-        </picture>
+        {{- end -}}
       </div>
     </div>
   </div>

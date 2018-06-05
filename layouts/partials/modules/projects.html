@@ -1,19 +1,25 @@
-{{$currentPageContext := .}}
-{{with .Params.projects}}
+{{- with .Params.projects -}}
 <ul class="projects clearfix">
   {{- range . -}}
     <li class="project{{with .class}} {{.}}{{end}}">
       <a href="{{.link}}">
-        <picture>
-          {{- with .responsive_images -}}
-            {{range $imageWidth, $imageUrl := .}}
-              {{ $currentPageContext.Scratch.Add "srcSetArray" (slice (print ($imageUrl | relURL) " " $imageWidth "w")) }}
-            {{end}}
-            <source media="(max-width: 46.25em)" srcset="{{delimit ($currentPageContext.Scratch.Get "srcSetArray") ", "}}">
-            {{ $currentPageContext.Scratch.Delete "srcSetArray" }}
+        {{- with .image -}}
+          {{- $imageUrl := .url -}}
+          {{- $imageAltText := .alt_text -}}
+          {{- $responsiveSources := .responsive_sources -}}
+          {{- with $imageUrl -}}
+            <picture>
+              {{- with $responsiveSources -}}
+                {{- range $imageWidth, $imageSourceUrl := . -}}
+                  {{- $.Scratch.Add "imageSrcSetArray" (slice (print ($imageSourceUrl | relURL) " " $imageWidth "w")) -}}
+                {{- end -}}
+                <source media="(max-width: 46.25em)" srcset="{{delimit ($.Scratch.Get "imageSrcSetArray") ", "}}">
+                {{- $.Scratch.Delete "imageSrcSetArray" -}}
+              {{- end -}}
+              <img class="project-image" src="{{. | relURL}}" alt="{{$imageAltText}}">
+            </picture>
           {{- end -}}
-          <img class="project-image" src="{{.image | relURL}}" alt="{{.image_alt}}">
-        </picture>
+        {{- end -}}
         <div class="project-hover">
           <div class="project-caption">
             {{- with .title -}}
