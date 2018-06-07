@@ -1,0 +1,18 @@
+{{$page := .page}}
+{{- with .image -}}
+  {{- $imageUrl := .url -}}
+  {{- $imageAltText := .alt_text -}}
+  {{- $responsiveSources := .responsive_sources -}}
+  {{- with $imageUrl -}}
+    <picture>
+      {{- with $responsiveSources -}}
+        {{- range $imageWidth, $imageSourceUrl := . -}}
+          {{- $page.Scratch.Add "imageSrcSetArray" (slice (print ($imageSourceUrl | relURL) " " $imageWidth "w")) -}}
+        {{- end -}}
+        <source media="(max-width: 46.25em)" srcset="{{delimit ($page.Scratch.Get "imageSrcSetArray") ", "}}">
+        {{- $page.Scratch.Delete "imageSrcSetArray" -}}
+      {{- end -}}
+      <img class="image-item" src="{{. | relURL}}" alt="{{$imageAltText}}">
+    </picture>
+  {{- end -}}
+{{- end -}}
