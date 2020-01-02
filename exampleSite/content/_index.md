@@ -38,7 +38,7 @@ projects:
         "565": img/analytik_565x420.jpg
         "360": img/analytik_360x318.jpg
   - title: Friends
-    type: web design
+    type: Product Development
     link: https://unsplash.com/photos/ir5lIkVFqC4
     class: wide-col
     image:
