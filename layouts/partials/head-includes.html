@@ -323,7 +323,12 @@
   }
 </style>
 <noscript id="deferredCss">
-  <link rel="stylesheet" href="{{`app.css` | relURL}}">
+  {{$sassOptions := (dict "targetPath" "css/app.css")}}
+  {{$css := resources.Get "scss/app.scss" | toCSS $sassOptions}}
+  {{if eq (hugo.Environment) "production" | or (eq .Site.Params.env "production")}}
+  {{$css = $css | minify | fingerprint}}
+  {{end}}
+  <link rel="stylesheet" href="{{$css.RelPermalink}}">
 </noscript>
 <script>
   document.createElement("picture");

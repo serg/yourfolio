@@ -1,4 +1,6 @@
 {{- partial "deferred-load-script.html" . -}}
-<script src="{{`vendor.js` | relURL}}"></script>
-<script src="{{`app.js` | relURL}}"></script>
-<script>require('app').init()</script>
+{{$js := resources.Get "js/app.js"}}
+{{if eq (hugo.Environment) "production" | or (eq .Site.Params.env "production")}}
+{{$js = $js | minify | fingerprint}}
+{{end}}
+<script src="{{$js.RelPermalink}}"></script>

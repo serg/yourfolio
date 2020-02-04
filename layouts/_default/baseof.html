@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ block "title" . }}{{ with .Title }}{{ . }} - {{ end }}{{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ .Description }}">
-    {{- if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") -}}
+    {{- if (eq hugo.Environment "production") | or (eq .Site.Params.env "production") -}}
       <meta name="robots" content="index, follow">
     {{- else -}}
       <meta name="robots" content="noindex, nofollow">
@@ -29,7 +29,7 @@
     {{- block "scripts" . -}}
       {{- partial "scripts.html" . -}}
     {{- end -}}
-    {{- if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") | and .Site.GoogleAnalytics -}}
+    {{- if (eq hugo.Environment "production") | or (eq .Site.Params.env "production") | and .Site.GoogleAnalytics -}}
       {{- template "_internal/google_analytics_async.html" . -}}
     {{- end -}}
   </body>

@@ -1,0 +1,299 @@
+.burger-wrap {
+  float: right;
+  height: 100%;
+
+  &:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: '';
+    height: 100%;
+    width: 0;
+  }
+}
+
+.burger {
+  position: relative;
+  width: 2.5em;
+  height: 1.8em;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+
+  & > div {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: #171616;
+    height: .2em;
+  }
+
+  .top {
+    top: 0;
+    transition: transform 0.5s, top 0.2s;
+  }
+
+  .middle {
+    top: .8em;
+    transition: transform 0.5s ease 0.2s, top 0.2s;
+  }
+
+  .bottom {
+    top: 1.6em;
+    transition: all 0.5s ease 0.1s;
+  }
+}
+
+.BurgerMenu--active {
+  .burger {
+    .top {
+      top: .8em;
+      transform: rotate(135deg);
+    }
+
+    .middle {
+      transform: rotate(-135deg);
+    }
+
+    .bottom {
+      top: 0.8em;
+      opacity: 0;
+      transform: rotate(180deg);
+    }
+  }
+
+  .links {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.projects {
+  margin-top: 4.5em;
+  margin-bottom: 3.5em;
+
+  & .project {
+    margin-bottom: 2em;
+  }
+
+  & a {
+    position: relative;
+    display: block;
+  }
+
+  & a:hover{
+    & .project-hover {
+      background: #224afa;
+      color: #fff;
+      opacity: 0.9;
+      -webkit-transition: opacity 200ms linear;
+      -moz-transition: opacity 200ms linear;
+      -ms-transition: opacity 200ms linear;
+      -o-transition: opacity 200ms linear;
+      transition: opacity 200ms linear;
+    }
+  }
+
+  & .image-item {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  & .project-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    -webkit-transition: all 200ms linear 300ms;
+    -moz-transition: all 200ms linear 300ms;
+    -ms-transition: all 200ms linear 300ms;
+    -o-transition: all 200ms linear 300ms;
+    transition: all 200ms linear 300ms;
+  }
+}
+
+.project-caption {
+  padding: 1.5em;
+  line-height: 1.2;
+
+  & .project-title {
+    max-height: 3.5em;
+    font-size: 2.8em;
+    font-weight: bold;
+    overflow: hidden;
+  }
+
+  & .project-type {
+    margin-top: .5em;
+    font-size: 1.4em;
+    text-transform: uppercase;
+  }
+}
+
+.line::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background: #ebebeb;
+  margin-top: 4.2em;
+  margin-bottom: 4.2em;
+}
+
+.bottom-space {
+  margin-bottom: 4.2em;
+}
+
+.stickyNavigation {
+  .nav-container {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    padding-bottom: 1.5em;
+    -webkit-box-shadow: 0 5px 7px 0 rgba(1,1,1,.1);
+    box-shadow: 0 5px 7px 0 rgba(1,1,1,.1);
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+  }
+
+  .navbar {
+    height: 5em;
+    padding-top: 1.5em;
+  }
+
+  .logo img {
+    max-height: 5em;
+  }
+
+  .header {
+    padding-top: 9.1em;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 60px, 0);
+    transform: translate3d(0, 60px, 0);
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 60px, 0);
+    transform: translate3d(0, 60px, 0);
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+//361
+@media only screen and (min-width: 22.5625em) {
+  .projects {
+    margin-top: 7.5em;
+    margin-bottom: 6em;
+  }
+}
+
+//446
+@media only screen and (min-width: 27.875em) {
+  .project-caption {
+    & .project-title {
+      font-size: 3.5em;
+    }
+
+    & .project-type {
+      font-size: 1.6em;
+    }
+  }
+}
+
+//741
+@media only screen and (min-width: 46.3125em) {
+  .projects {
+    margin-top: 10em;
+
+    & .project {
+      float: left;
+    }
+
+    & .short-col {
+      width: 32.21238%;
+    }
+
+    & .wide-col {
+      width: 66.01769%;
+    }
+
+    & .project:nth-child(2n) {
+      margin-right: 1.7699%;
+    }
+  }
+
+  .project-caption {
+    padding: 3.7em 2.5em 3.7em 3em;
+
+    & .project-title {
+      font-size: 4em;
+      max-height: 4.8em;
+    }
+  }
+}
+
+//936
+@media only screen and (min-width: 58.5em) {
+  .project-caption {
+    & .project-title {
+      font-size: 4.6em;
+    }
+  }
+}
