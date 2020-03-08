@@ -1,0 +1,18 @@
+{{$original := .bundle.Resources.GetMatch .path}}
+{{$command := .cmd | default "Fill"}}
+{{$options := .options}}
+{{$image := dict "RelPermalink" ""}}
+
+{{with $original}}
+  {{if eq $command "Fill"}}
+    {{$image = $original.Fill $options}}
+  {{else if eq $command "Fit"}}
+    {{$image = $original.Fit $options}}
+  {{else if eq $command "Resize"}}
+    {{$image = $original.Resize $options}}
+  {{else}}
+    {{errorf "Invalid image processing command: Must be one of Fit, Fill or Resize."}}
+  {{end}}
+{{end}}
+
+{{return $image}}

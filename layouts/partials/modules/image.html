@@ -1,0 +1,30 @@
+{{$imageBundle := .page.Site.GetPage "uploads"}}
+
+{{with .image}}
+  {{$path := .url}}
+  {{$media := .media}}
+  {{$alt := .alt}}
+  {{$srcset := slice}}
+
+  {{with .params}}
+    {{range (last (sub (len .) 1) .)}}
+      {{$image := partial "func/GetImage" (dict "bundle" $imageBundle "path" $path "cmd" .cmd "options" .options)}}
+      {{$width := index (split .options "x") 0}}
+      {{$srcset = $srcset | append (print ($image.RelPermalink) " " $width "w")}}
+    {{end}}
+  {{end}}
+
+  <picture{{with .class}} class="{{.}}"{{end}}>
+    {{with $srcset}}
+    <source{{with $media}} media="{{.}}"{{end}} srcset="{{delimit $srcset ", "}}" />
+    {{end}}
+    {{if .params}}
+      {{with (index .params 0)}}
+        {{$image := partial "func/GetImage" (dict "bundle" $imageBundle "path" $path "cmd" .cmd "options" .options)}}
+        <img src="{{$image.RelPermalink | default ($path | relURL)}}" alt="{{$alt}}" />
+      {{end}}
+    {{else}}
+    <img src="{{$path | relURL}}" alt="{{$alt}}" />
+    {{end}}
+  </picture>
+{{end}}

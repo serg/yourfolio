@@ -5,7 +5,7 @@ Super simple and responsive theme for your personal website on Hugo framework.
 
 ## Installation
 Before start you already need to have a Hugo on your machine.  
-**Please note:** you need to have the extended version of Hugo v0.48 or above.
+**Please note:** you need to have the extended version of Hugo v0.64.1 or above.
 You can install it by following [these instructions](https://gohugo.io/getting-started/installing/).
 
 Create the Hugo website template if you are starting from scratch:
