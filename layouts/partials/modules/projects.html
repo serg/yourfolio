@@ -4,7 +4,7 @@
   {{- range . -}}
     <li class="project{{with .class}} {{.}}{{end}}">
       <a href="{{.link}}">
-        {{- partial "modules/responsive-image" (dict "page" $page "image" .image) -}}
+        {{- partial "modules/image" (dict "image" .image "page" $page) -}}
         <div class="project-hover">
           <div class="project-caption">
             {{- with .title -}}
