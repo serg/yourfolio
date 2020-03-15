@@ -9,8 +9,7 @@
   {{with .params}}
     {{range (last (sub (len .) 1) .)}}
       {{$image := partial "func/GetImage" (dict "bundle" $imageBundle "path" $path "cmd" .cmd "options" .options)}}
-      {{$width := index (split .options "x") 0}}
-      {{$srcset = $srcset | append (print ($image.RelPermalink) " " $width "w")}}
+      {{$srcset = $srcset | append (print ($image.RelPermalink) " " $image.Width "w")}}
     {{end}}
   {{end}}
 
