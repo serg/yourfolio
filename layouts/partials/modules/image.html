@@ -8,7 +8,7 @@
 
   {{with .params}}
     {{range (last (sub (len .) 1) .)}}
-      {{$image := partial "func/GetImage" (dict "bundle" $imageBundle "path" $path "cmd" .cmd "options" .options)}}
+      {{$image := partial "funcs/GetImage" (dict "bundle" $imageBundle "path" $path "cmd" .cmd "options" .options)}}
       {{$srcset = $srcset | append (print ($image.RelPermalink) " " $image.Width "w")}}
     {{end}}
   {{end}}
@@ -19,7 +19,7 @@
     {{end}}
     {{if .params}}
       {{with (index .params 0)}}
-        {{$image := partial "func/GetImage" (dict "bundle" $imageBundle "path" $path "cmd" .cmd "options" .options)}}
+        {{$image := partial "funcs/GetImage" (dict "bundle" $imageBundle "path" $path "cmd" .cmd "options" .options)}}
         <img src="{{$image.RelPermalink | default ($path | relURL)}}" alt="{{$alt}}" />
       {{end}}
     {{else}}
