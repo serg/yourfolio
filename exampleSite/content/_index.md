@@ -7,12 +7,17 @@ description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor cum
 header:
   description: Hello, my name is Yates. I live and work in London. I'm keen on <span class="blue-text">design and photography</span>.
   image:
-    url: img/home_img.png
-    alt_text: The top of mountain image
-    responsive_sources:
-      "848": img/home_848x443.png
-      "565": img/home_565x420.png
-      "360": img/home_360x318.png
+    url: home-hero.png
+    alt: The top of mountain image
+    media: "(max-width: 46.25em)"
+    params:
+    - options: 1130x500
+    - options: 848x443
+      cmd: Fit
+    - options: 565x420
+      cmd: Fit
+    - options: 360x318
+      cmd: Fit
 text_groups:
   - name: Intro
     description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia esse aut, blanditiis ullam. Similique quo iusto ipsa, excepturi autem voluptate consectetur sit quae praesentium <span class="default-text bold-text">aliquam molestiae</span> minima ex perferendis aut unde tempora amet esse inventore quaerat molestias eum distinctio eligendi ducimus. Commodi voluptatem ab debitis inventore, laborum at maiores reiciendis dolor deleniti ipsam distinctio voluptas eos autem quidem a quia laboriosam similique soluta rem? Eum.

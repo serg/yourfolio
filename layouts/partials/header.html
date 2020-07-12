@@ -6,7 +6,7 @@
         {{- with $header.description -}}
           <h1 class="break-word">{{- . | safeHTML -}}</h1>
         {{- end -}}
-        {{- partial "modules/responsive-image" (dict "page" . "image" $header.image) -}}
+        {{- partial "modules/image" (dict "image" $header.image "page" .) -}}
       </div>
     </div>
   </div>

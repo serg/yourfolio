@@ -6,12 +6,14 @@ description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores p
 header:
   description: I'm a multidisciplinary designer who specializing in <span class="blue-text">UI, UX and Visual Design</span>. Currently based in United Kingdom.
   image:
-    url: img/profile_img.png
-    alt_text: The designer's workspace table image
-    responsive_sources:
-      "848": img/profile_848x443.png
-      "565": img/profile_565x420.png
-      "360": img/profile_360x318.png
+    url: about-hero.png
+    alt: The designer's workspace table image
+    media: "(max-width: 46.25em)"
+    params:
+    - options: 1130x500
+    - options: 848x443 Center
+    - options: 700x420 Center
+    - options: 490x318 Center
 text_groups:
   - name: About
     description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis saepe perferendis culpa aut libero, <span class="default-text bold-text">voluptatem voluptatum</span>, ut beatae ipsa sint alias autem ipsum ea quibusdam suscipit provident illo nihil nostrum porro. Omnis et hic eum in corrupti dicta cum fugiat!
