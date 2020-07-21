@@ -1,6 +1,6 @@
 {{- define "page-class" -}}error404{{- end -}}
 {{- define "head-includes" -}}
-  {{- partial "head-includes.html" . -}}
+  {{- partialCached "head-includes.html" . -}}
   <style>
     .error404 {
       height: 100%; }
