@@ -13,7 +13,7 @@
     {{- end -}}
     <link rel="shortcut icon" href="{{`favicon.ico` | relURL}}">
     {{- block "head-includes" . -}}
-      {{- partial "head-includes.html" . -}}
+      {{- partialCached "head-includes.html" . -}}
     {{- end -}}
   </head>
   <body>
