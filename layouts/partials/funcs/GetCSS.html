@@ -1,0 +1,14 @@
+{{$isProduction := hugo.IsProduction}}
+{{$sassOptions := dict "enableSourceMap" (.enableSourceMap | default (not $isProduction))}}
+
+{{with .outputPath}}
+  {{$sassOptions = merge $sassOptions (dict "targetPath" .)}}
+{{end}}
+
+{{$css := resources.Get .sourcePath | toCSS $sassOptions}}
+
+{{if $isProduction}}
+  {{$css = $css | minify | fingerprint}}
+{{end}}
+
+{{return $css}}
