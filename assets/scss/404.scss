@@ -1,3 +1,5 @@
+@import "vars";
+
 .error404 {
   height: 100%;
 }
@@ -24,9 +26,9 @@
 
 .error404 .main-description p {
   display: inline;
+  color: $group-text-color;
   font-size: 2em;
   font-weight: 600;
-  color: #989898;
 }
 
 .error404 .main-description .img-col {

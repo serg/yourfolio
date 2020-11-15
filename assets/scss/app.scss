@@ -1,3 +1,5 @@
+@import "vars";
+
 .burger-wrap {
   float: right;
   height: 100%;
@@ -23,7 +25,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    background: #171616;
+    background: $burger-color;
     height: .2em;
   }
 
@@ -82,8 +84,8 @@
 
   & a:hover{
     & .project-hover {
-      background: #224afa;
-      color: #fff;
+      background: $accent-color;
+      color: $tile-text-hover-color;
       opacity: 0.9;
       -webkit-transition: opacity 200ms linear;
       -moz-transition: opacity 200ms linear;
@@ -136,7 +138,7 @@
   content: "";
   display: block;
   height: 1px;
-  background: #ebebeb;
+  background: $border-color;
   margin-top: 4.2em;
   margin-bottom: 4.2em;
 }
