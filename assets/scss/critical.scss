@@ -1,3 +1,4 @@
+@import "vars";
 @import "base";
 @import "fonts";
 
@@ -5,8 +6,8 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 50%;
   line-height: 1.5;
-  background: white;
-  color: #2f2f2f;
+  background: $background-color;
+  color: $text-color;
 }
 
 .main-container {
@@ -14,20 +15,20 @@ body {
 }
 
 .main-container a {
-  color: #989898;
+  color: $group-text-color;
   text-decoration: none;
 }
 
 .main-container a:hover {
-  color: #2f2f2f;
+  color: $text-color;
 }
 
 .main-container .blue-text {
-  color: #224afa;
+  color: $accent-color;
 }
 
 .main-container a.blue-text:hover {
-  color: #1538d1;
+  color: $accent-hover-color;
 }
 
 .padder {
@@ -36,7 +37,7 @@ body {
 }
 
 .nav-container, .header {
-  background: #f1f1f1;
+  background: $hero-color;
 }
 
 .navbar {
@@ -71,7 +72,7 @@ body {
   right: -2em;
   left: -2em;
   padding: 1em 0;
-  background: #f1f1f1;
+  background: $hero-color;
   text-align: center;
   -webkit-box-shadow: 0 5px 7px 0 rgba(1,1,1,.1);
   box-shadow: 0 5px 7px 0 rgba(1,1,1,.1);
@@ -85,7 +86,7 @@ body {
 }
 
 .links .active a {
-  color: #2f2f2f;
+  color: $text-color;
 }
 
 .links a {
@@ -147,13 +148,13 @@ body {
 }
 
 .categories .description {
+  color: $group-text-color;
   font-size: 1.8em;
   font-weight: 600;
-  color: #989898;
 }
 
 .default-text {
-  color: #2f2f2f;
+  color: $text-color;
 }
 
 .bold-text {
@@ -324,7 +325,9 @@ body {
     padding-bottom: 2.3148em;
   }
 
-  .categories .category, .categories .name, .categories .description {
+  .categories .category,
+  .categories .name,
+  .categories .description {
     float: left;
   }
 
