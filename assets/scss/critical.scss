@@ -23,11 +23,11 @@ body {
   color: $text-color;
 }
 
-.main-container .blue-text {
+.main-container .accent-text {
   color: $accent-color;
 }
 
-.main-container a.blue-text:hover {
+.main-container a.accent-text:hover {
   color: $accent-hover-color;
 }
 
@@ -74,8 +74,8 @@ body {
   padding: 1em 0;
   background: $hero-color;
   text-align: center;
-  -webkit-box-shadow: 0 5px 7px 0 rgba(1,1,1,.1);
-  box-shadow: 0 5px 7px 0 rgba(1,1,1,.1);
+  -webkit-box-shadow: 0 5px 7px 0 $header-shadow-color;
+  box-shadow: 0 5px 7px 0 $header-shadow-color;
   -webkit-transition: opacity .4s;
   -o-transition: opacity .4s;
   transition: opacity .4s;
@@ -305,8 +305,8 @@ body {
     float: none;
     height: auto;
     padding: 1em 0;
-    -webkit-box-shadow: 0 5px 7px 0 rgba(1, 1, 1, .1);
-    box-shadow: 0 5px 7px 0 rgba(1, 1, 1, .1);
+    -webkit-box-shadow: 0 5px 7px 0 $header-shadow-color;
+    box-shadow: 0 5px 7px 0 $header-shadow-color;
   }
 
   .showBurger .links:before {
