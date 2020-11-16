@@ -1,0 +1,37 @@
+.padder {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.accent-text {
+  color: $accent-color;
+}
+
+.default-text {
+  color: $text-color;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.break-word {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}

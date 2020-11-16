@@ -3,10 +3,10 @@
   {{- range . -}}
     <div class="category{{with .class}} {{.}}{{end}}">
       {{- with .name -}}
-        <div class="name">{{- . | safeHTML -}}</div>
+        <div class="category-label">{{- . | safeHTML -}}</div>
       {{- end -}}
       {{- with .description -}}
-        <div class="description">{{- . | safeHTML -}}</div>
+        <div class="category-content">{{- . | safeHTML -}}</div>
       {{- end -}}
     </div>
   {{- end -}}
