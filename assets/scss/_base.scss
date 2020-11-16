@@ -1,23 +1,27 @@
-html,
-body,
-div,
-ul,
-li,
-h1,
-a,
-img,
-span,
-p {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+html {
+  font-size: 62.5%; //10px
 }
 
 body {
-  line-height: 1;
+  font-family: $text-font;
+  line-height: 1.5;
+  background: $background-color;
+  color: $text-color;
+  overflow-x: hidden;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+a {
+  color: $accent-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $accent-hover-color;
+  }
 }
 
 ul {
