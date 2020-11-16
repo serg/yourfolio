@@ -1,29 +1,8 @@
-@import "vars";
-@import "base";
 @import "fonts";
+@import "vars";
+@import "reset";
+@import "base";
 @import "layout";
-
-body {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 50%;
-  line-height: 1.5;
-  background: $background-color;
-  color: $text-color;
-}
-
-a {
-  color: $accent-color;
-  text-decoration: none;
-
-  &:hover {
-    color: $accent-hover-color;
-  }
-}
-
-.main-container {
-  font-size: 125%;
-  overflow-x: hidden;
-}
 
 .nav-container,
 .header {
@@ -100,7 +79,7 @@ a {
   h1 {
     position: relative;
     font-size: 4em;
-    font-weight: bold;
+    font-weight: 700;
     line-height: 1.15;
     padding-top: 1.3em;
     padding-bottom: 1.3em;
@@ -125,7 +104,7 @@ a {
 
   &-label {
     font-size: 1.6em;
-    font-weight: bold;
+    font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 0.472em;
   }
