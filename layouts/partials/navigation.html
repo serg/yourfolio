@@ -5,7 +5,7 @@
     <div class="padder">
       <div class="navbar animated slideInDown">
         <div class="logo"><a href="{{.Site.BaseURL}}"><img src="{{.Site.Params.logoImage | relURL}}" alt="{{.Site.Params.logoImageAlt}}"></a></div>
-        <div class="burger-wrap">
+        <div class="burger-holder">
           <div class="burger">
             <div class="top"></div>
             <div class="middle"></div>
@@ -15,7 +15,7 @@
         <ul class="links">
           {{$permalink := .Permalink}}
           {{- range .Site.Menus.main -}}
-            <li {{if in $permalink .URL }}class="active"{{end}}><a href="{{.URL}}">{{.Name}}</a></li>
+            <li><a href="{{.URL}}"{{if in $permalink .URL}} class="active"{{end}}>{{.Name}}</a></li>
           {{- end -}}
         </ul>
       </div>
