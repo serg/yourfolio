@@ -36,30 +36,29 @@ var App = {
     window.addEventListener('scroll', updateProjectsView);
   },
   initBurgerHandler: function() {
-    var navContainer = document.querySelector('.nav-container');
+    var body = document.body;
     var burger = document.querySelector('.burger');
 
     burger.addEventListener('click', function() {
-      navContainer.classList.toggle('BurgerMenu--active');
+      body.classList.toggle('show-burger-menu');
     });
   },
   stickyNavigationHandler: function() {
     var scrollPosition = 0;
-    var mainContainer = document.querySelector('.main-container');
-    var navContainer = document.querySelector('.nav-container');
+    var body = document.body;
 
     var updateNavigationView = function() {
       var currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
       var isUpDirection = (currentScrollPos && currentScrollPos < scrollPosition);
 
       if (isUpDirection) {
-        mainContainer.classList.add('stickyNavigation');
+        body.classList.add('sticky-navigation');
       } else {
-        mainContainer.classList.remove('stickyNavigation');
+        body.classList.remove('sticky-navigation');
       }
 
       if (currentScrollPos > scrollPosition) {
-        navContainer.classList.remove('BurgerMenu--active');
+        body.classList.remove('show-burger-menu');
       }
 
       scrollPosition = currentScrollPos;

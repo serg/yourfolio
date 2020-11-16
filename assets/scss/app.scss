@@ -45,7 +45,7 @@
   }
 }
 
-.BurgerMenu--active {
+.show-burger-menu {
   .burger {
     .top {
       top: .8em;
@@ -145,7 +145,7 @@
   margin-bottom: 4.2em;
 }
 
-.stickyNavigation {
+.sticky-navigation {
   .nav-container {
     position: fixed;
     z-index: 10;
