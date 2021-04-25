@@ -260,23 +260,22 @@
 //741
 @media only screen and (min-width: 46.3125em) {
   .short-col {
-    width: 32.21238%;
+    width: 31.65217%;
   }
 
   .wide-col {
-    width: 66.01769%;
+    width: 64.86956%;
   }
 
   .projects {
     margin-top: 10em;
+    margin-left: -0.88495%; //10px of 1130px container
+    margin-right: -0.88495%;
   }
 
   .project {
     float: left;
-
-    &:nth-child(2n) {
-      margin-right: 1.7699%;
-    }
+    margin: 0 0.86956% 1.73912%; //10px and 20px of 1150px container
 
     &-caption {
       padding: 3.7em 2.5em 3.7em 3em;
