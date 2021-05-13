@@ -1,9 +1,6 @@
-html {
-  font-size: 62.5%; //10px
-}
-
 body {
   font-family: $text-font;
+  font-size: 62.5%; //10px if default browser font equals to 16px
   line-height: 1.5;
   background: $background-color;
   color: $text-color;
