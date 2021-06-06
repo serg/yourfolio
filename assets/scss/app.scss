@@ -274,7 +274,7 @@
   }
 
   .project {
-    float: left;
+    display: inline-block;
     margin: 0 0.86956% 1.73912%; //10px and 20px of 1150px container
 
     &-caption {
