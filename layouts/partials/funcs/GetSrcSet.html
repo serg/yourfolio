@@ -1,0 +1,10 @@
+{{$imageBundle := .imageBundle}}
+{{$src := .src}}
+{{$srcset := slice}}
+
+{{range .cropSet}}
+  {{$image := partial "funcs/GetImage" (dict "bundle" $imageBundle "path" $src "cmd" .cmd "options" .options)}}
+  {{$srcset = $srcset | append (print $image.RelPermalink " " $image.Width "w")}}
+{{end}}
+
+{{return delimit $srcset ", "}}

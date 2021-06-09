@@ -6,14 +6,17 @@ description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores p
 header:
   description: I'm a multidisciplinary designer who specializing in <span class="accent-text">UI, UX and Visual Design</span>. Currently based in United Kingdom.
   image:
-    url: about-hero.png
+    src: about-hero.png
     alt: The designer's workspace table image
-    media: "(max-width: 46.25em)"
-    params:
+    cropSet:
     - options: 1130x500
-    - options: 848x443 Center
-    - options: 700x420 Center
-    - options: 490x318 Center
+    sources:
+    - media: "(max-width: 46.25em)"
+      cropSet:
+      - options: 490x318 Center
+      - options: 700x420 Center
+      - options: 848x443 Center
+      - options: 1130x500
 text_groups:
   - name: About
     description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis saepe perferendis culpa aut libero, <span class="default-text bold-text">voluptatem voluptatum</span>, ut beatae ipsa sint alias autem ipsum ea quibusdam suscipit provident illo nihil nostrum porro. Omnis et hic eum in corrupti dicta cum fugiat!
@@ -25,5 +28,3 @@ text_groups:
     description: <a class="accent-text bold-text" href="mailto:hello@example.com?subject=Hello,%20Yates!%20Lets%20make%20something%20great%20together!">hello@example.com</a>
     class: line
 ---
-
-

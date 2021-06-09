@@ -1,29 +1,64 @@
+{{/* Interface params
+image:
+  src: img.jpg
+  alt: Description
+  srcset: src/img-1.jpg 500w, src/img-2.jpg 900w
+  sizes: "(min-width: 600px) 50vw, 100vw"
+  cropSet: # order matter; override sibling srcset if defined
+  - options: 900x400
+    cmd: Resize
+  - options: 1170x500 # last (or only first) item is default cropped image and used as src of <img> tag
+  sources:
+  - type: image/webp
+    media: "(max-width: 46.25em)"
+    srcset: src/img-1.jpg 500w, src/img-2.jpg 900w
+    sizes: "(min-width: 600px) 50vw, 100vw"
+    cropSet: # override sibling srcset if defined
+    - options: 320x250 Left
+      cmd: Fit
+*/}}
+
 {{$imageBundle := .page.Site.GetPage "uploads"}}
 
 {{with .image}}
-  {{$path := .url}}
-  {{$media := .media}}
+  {{$src := .src}}
   {{$alt := .alt}}
-  {{$srcset := slice}}
+  {{$srcset := .srcset}}
+  {{$sizes := .sizes}}
+  {{$sources := .sources}}
 
-  {{with .params}}
-    {{range (last (sub (len .) 1) .)}}
-      {{$image := partial "funcs/GetImage" (dict "bundle" $imageBundle "path" $path "cmd" .cmd "options" .options)}}
-      {{$srcset = $srcset | append (print ($image.RelPermalink) " " $image.Width "w")}}
-    {{end}}
+  {{with .cropSet}}
+    {{$srcset = partial "funcs/GetSrcSet" (dict "imageBundle" $imageBundle "src" $src "cropSet" (first (sub (len .) 1) .))}}
   {{end}}
 
-  <picture{{with .class}} class="{{.}}"{{end}}>
-    {{with $srcset}}
-    <source{{with $media}} media="{{.}}"{{end}} srcset="{{delimit $srcset ", "}}" />
+  <picture>
+    {{range $sources}}
+      {{$sourceSrcSet := .srcset}}
+      {{with .cropSet}}
+        {{$sourceSrcSet = partial "funcs/GetSrcSet" (dict "imageBundle" $imageBundle "src" $src "cropSet" .)}}
+      {{end}}
+      <source
+        {{with .type}} type="{{.}}"{{end}}
+        {{with .media}} media="{{.}}"{{end}}
+        {{with $sourceSrcSet}} srcset="{{.}}"{{end}}
+        {{with .sizes}} sizes="{{.}}"{{end}}
+      />
     {{end}}
-    {{if .params}}
-      {{with (index .params 0)}}
-        {{$image := partial "funcs/GetImage" (dict "bundle" $imageBundle "path" $path "cmd" .cmd "options" .options)}}
-        <img src="{{$image.RelPermalink | default ($path | relURL)}}" alt="{{$alt}}" />
+    {{if .cropSet}}
+      {{with (index (last 1 .cropSet) 0)}}
+        {{$image := partial "funcs/GetImage" (dict "bundle" $imageBundle "path" $src "cmd" .cmd "options" .options)}}
+        <img src="{{$image.RelPermalink | default ($src | relURL)}}"
+          {{with $alt}} alt="{{.}}"{{end}}
+          {{with $srcset}} srcset="{{.}}"{{end}}
+          {{with $sizes}} sizes="{{.}}"{{end}}
+        />
       {{end}}
     {{else}}
-    <img src="{{$path | relURL}}" alt="{{$alt}}" />
+      <img src="{{$src | relURL}}"
+        {{with $alt}} alt="{{.}}"{{end}}
+        {{with $srcset}} srcset="{{.}}"{{end}}
+        {{with $sizes}} sizes="{{.}}"{{end}}
+      />
     {{end}}
   </picture>
 {{end}}
