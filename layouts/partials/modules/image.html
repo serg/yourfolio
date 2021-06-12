@@ -16,6 +16,7 @@ image:
     cropSet: # override sibling srcset if defined
     - options: 320x250 Left
       cmd: Fit
+      descriptor: 2x # or 800w - used in combination with srcset url
 */}}
 
 {{$imageBundle := .page.Site.GetPage "uploads"}}
@@ -39,7 +40,7 @@ image:
         <source
           {{with .type}} type="{{.}}"{{end}}
           {{with .media}} media="{{.}}"{{end}}
-          {{with $sourceSrcSet}} srcset="{{.}}"{{end}}
+          {{with $sourceSrcSet}} {{printf "srcset=%q" . | safeHTMLAttr}}{{end}}
           {{with .sizes}} sizes="{{.}}"{{end}}
         />
       {{end}}
@@ -51,7 +52,7 @@ image:
     {{end}}
     <img src="{{$image.RelPermalink | default ($src | relURL)}}"
       {{with .alt}} alt="{{.}}"{{end}}
-      {{with $srcset}} srcset="{{.}}"{{end}}
+      {{with $srcset}} {{printf "srcset=%q" . | safeHTMLAttr}}{{end}}
       {{with .sizes}} sizes="{{.}}"{{end}}
     />
   {{if .sources}}</picture>{{end}}

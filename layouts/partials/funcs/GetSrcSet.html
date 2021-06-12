@@ -5,7 +5,8 @@
 {{range .cropSet}}
   {{$image := partial "funcs/GetImage" (dict "bundle" $imageBundle "path" $path "cmd" .cmd "options" .options)}}
   {{if $image}}
-    {{$srcset = $srcset | append (print $image.RelPermalink " " $image.Width "w")}}
+    {{$descriptor := .descriptor | default (print $image.Width "w")}}
+    {{$srcset = $srcset | append (print $image.RelPermalink " " $descriptor)}}
   {{end}}
 {{end}}
 
