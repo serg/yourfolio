@@ -4,6 +4,8 @@ image:
   alt: Description
   srcset: src/img-1.jpg 500w, src/img-2.jpg 900w
   sizes: "(min-width: 600px) 50vw, 100vw"
+  width: crop # get width of image automatically after crop; or define manually a number value for this variable; depends on first (or only one) item in cropSet param
+  height: crop # get height of image automatically after crop; or define manually a number value for this variable; depends on first (or only one) item in cropSet param
   cropSet: # order matter; override sibling srcset if defined
   - options: 1170x500 # first (or only one) item is default cropped image and used as src in <img> tag
   - options: 900x400
@@ -50,10 +52,14 @@ image:
         {{$image = partial "funcs/GetImage" (dict "bundle" $imageBundle "path" $src "cmd" .cmd "options" .options)}}
       {{end}}
     {{end}}
+    {{$width := cond (eq .width "crop") $image.Width .width}}
+    {{$height := cond (eq .height "crop") $image.Height .height}}
     <img src="{{$image.RelPermalink | default ($src | relURL)}}"
       {{with .alt}} alt="{{.}}"{{end}}
       {{with $srcset}} {{printf "srcset=%q" . | safeHTMLAttr}}{{end}}
       {{with .sizes}} sizes="{{.}}"{{end}}
+      {{with $width}} width="{{.}}"{{end}}
+      {{with $height}} height="{{.}}"{{end}}
     />
   {{if .sources}}</picture>{{end}}
 {{end}}
