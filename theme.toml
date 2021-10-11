@@ -3,7 +3,8 @@ license = "MIT"
 licenselink = "https://github.com/serg/yourfolio/blob/master/LICENSE.md"
 description = "A simple and responsive theme for your personal website"
 homepage = "https://github.com/serg/yourfolio"
-tags = ["responsive", "minimal", "simple", "personal", "portfolio"]
+demosite = "https://themeslake.com/theme/yourfolio/"
+tags = ["responsive", "minimal", "personal", "portfolio", "light"]
 features = []
 min_version = "0.64.1"
 
