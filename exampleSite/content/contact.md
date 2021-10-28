@@ -10,10 +10,10 @@ header:
     alt: The chair for meeting image
     media: "(max-width: 46.25em)"
     params:
-    - options: 1130x500
-    - options: 848x443 Center
-    - options: 565x420 Center
-    - options: 360x318
+    - options: 1130x500 jpg
+    - options: 848x443 Center jpg
+    - options: 565x420 Center jpg
+    - options: 360x318 jpg
 text_groups:
   - name: Collaboration
     description: <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, atque officiis ut, veritatis reiciendis sequi quos officia quidem tempora minus fugit a suscipit nulla possimus?</p><br/><p>Let's get started&#58; <a class="accent-text bold-text" href="mailto:hello@example.com?subject=Hello,%20Yates!%20Lets%20make%20something%20great%20together!">hello@example.com</a></p>

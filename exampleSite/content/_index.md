@@ -11,12 +11,12 @@ header:
     alt: The top of mountain image
     media: "(max-width: 46.25em)"
     params:
-    - options: 1130x500
-    - options: 848x443
+    - options: 1130x500 jpg
+    - options: 848x443 jpg
       cmd: Fit
-    - options: 565x420
+    - options: 565x420 jpg
       cmd: Fit
-    - options: 360x318
+    - options: 360x318 jpg
       cmd: Fit
 text_groups:
   - name: Intro
